@@ -33,9 +33,9 @@ export function HowItWorks() {
                 <div className="flex flex-col items-center text-center">
                   {/* Number + connector row */}
                   <div className="relative w-full flex items-center justify-center mb-6">
-                    {/* Connector line (not on first or last) */}
+                    {/* Connector line (not on last) */}
                     {i < HOW_IT_WORKS.length - 1 && (
-                      <div className="absolute left-1/2 top-5 w-full h-px bg-[#E8E8E8] z-0" />
+                      <div className="absolute left-[calc(50%+20px)] top-5 right-0 h-px bg-[#E8E8E8] z-0" />
                     )}
                     <div className="relative z-10 w-10 h-10 rounded-2xl bg-[#1A1A1A] text-white font-black text-sm flex items-center justify-center shadow-sm">
                       {step.step}

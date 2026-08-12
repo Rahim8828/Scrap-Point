@@ -205,7 +205,6 @@ img { max-width: 100%; display: block; }
 .body-lg {
   font-size: 1.0625rem;
   line-height: 1.75;
-  /* No color lock — inherits from parent so it works on dark sections too */
 }
 
 .label-text {

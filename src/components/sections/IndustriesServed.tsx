@@ -32,24 +32,24 @@ export function IndustriesServed() {
         </ScrollReveal>
 
         {/* Grid */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {INDUSTRIES.map((industry) => (
             <StaggerItem key={industry.id}>
               <div className="group bg-white border border-[#E8E8E8] rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 h-full cursor-default">
                 {/* Image block */}
                 <div
-                  className="h-44 bg-cover bg-center relative overflow-hidden"
+                  className="h-48 bg-cover bg-center relative overflow-hidden"
                   style={{ backgroundImage: `url('${industry.image}')` }}
                 >
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300" />
                   {/* Name on image */}
-                  <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/65 to-transparent">
-                    <h3 className="text-white font-bold text-sm leading-snug">{industry.name}</h3>
+                  <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
+                    <h3 className="text-white font-bold text-base leading-snug">{industry.name}</h3>
                   </div>
                 </div>
                 {/* Description */}
-                <div className="p-5">
-                  <p className="text-[#5E5E5E] text-xs leading-relaxed">
+                <div className="p-6">
+                  <p className="text-[#5E5E5E] text-sm leading-relaxed">
                     {industry.description}
                   </p>
                 </div>

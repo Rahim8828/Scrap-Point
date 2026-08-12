@@ -13,11 +13,11 @@ export function FAQ() {
   return (
     <section className="section-padding bg-white">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-[360px_1fr] gap-12 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-[320px_1fr] gap-10 lg:gap-16 items-start">
 
           {/* Left sticky header */}
           <ScrollReveal>
-            <div className="lg:sticky lg:top-28">
+          <div className="lg:sticky lg:top-24">
               <span className="inline-block text-[11px] font-semibold tracking-[0.18em] uppercase text-[#AAAAAA] mb-4">
                 FAQ
               </span>
@@ -31,7 +31,7 @@ export function FAQ() {
                 <br />
                 Questions
               </h2>
-              <p className="text-sm text-[#5E5E5E] leading-relaxed mb-6" style={{ maxWidth: 260 }}>
+              <p className="text-sm text-[#5E5E5E] leading-relaxed mb-6" style={{ maxWidth: 280 }}>
                 Everything you need to know about working with Scrap Point for your industrial scrap needs.
               </p>
               <div className="p-4 bg-[#F8F8F8] border border-[#E8E8E8] rounded-2xl">

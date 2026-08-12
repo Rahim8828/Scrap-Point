@@ -35,7 +35,7 @@ export default function LocationsPage() {
                     <MapPin size={16} className="text-[#5E5E5E] group-hover:text-white/60 transition-colors" />
                   </div>
                   <div className="flex-1">
-                    <h2 className="font-700 text-[#1A1A1A] group-hover:text-white text-sm mb-0.5 transition-colors">
+                    <h2 className="font-bold text-[#1A1A1A] group-hover:text-white text-sm mb-0.5 transition-colors">
                       Scrap Buyer in {city.name}
                     </h2>
                     <p className="text-[10px] text-[#AAAAAA] group-hover:text-white/40 transition-colors mb-2">

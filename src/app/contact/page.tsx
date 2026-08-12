@@ -50,7 +50,7 @@ export default function ContactPage() {
 
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-16 items-start">
             {/* Left: contact info */}
             <ScrollReveal>
               <div className="space-y-6">
@@ -76,10 +76,10 @@ export default function ContactPage() {
                         <Icon size={15} className="text-[#5E5E5E]" />
                       </div>
                       <div>
-                        <div className="text-[10px] font-600 tracking-widest uppercase text-[#AAAAAA] mb-0.5">
+                        <div className="text-[10px] font-semibold tracking-widest uppercase text-[#AAAAAA] mb-0.5">
                           {label}
                         </div>
-                        <div className="text-sm font-600 text-[#1A1A1A]">{value}</div>
+                        <div className="text-sm font-semibold text-[#1A1A1A]">{value}</div>
                       </div>
                     </a>
                   ))}
@@ -104,7 +104,7 @@ export default function ContactPage() {
             {/* Right: form */}
             <ScrollReveal delay={0.15}>
               <div>
-                <h3 className="font-700 text-[#1A1A1A] mb-4">Send Us an Inquiry</h3>
+                <h3 className="font-bold text-xl text-[#1A1A1A] mb-4">Send Us an Inquiry</h3>
                 <InquiryForm variant="light" />
               </div>
             </ScrollReveal>

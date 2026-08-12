@@ -52,10 +52,10 @@ export function Navbar() {
   return (
     <>
       {/* Top info bar */}
-      <div className="hidden lg:block bg-[#111111] text-white/50 text-[11px] border-b border-white/8">
-        <div className="container-custom flex items-center justify-between py-2">
-          <span>Gujarat&apos;s Premier Industrial Scrap Procurement Company — Established {COMPANY.established}</span>
-          <div className="flex items-center gap-4">
+      <div className="hidden xl:block bg-[#111111] text-white/50 text-[11px] border-b border-white/8">
+        <div className="container-custom flex items-center justify-between py-2 gap-4">
+          <span className="shrink-0">Gujarat&apos;s Premier Industrial Scrap Procurement Company — Established {COMPANY.established}</span>
+          <div className="flex items-center gap-4 shrink-0">
             <a href={`tel:${COMPANY.phone}`} className="hover:text-white transition-colors">{COMPANY.phoneDisplay}</a>
             <span className="w-px h-3 bg-white/20" />
             <a href={`mailto:${COMPANY.email}`} className="hover:text-white transition-colors">{COMPANY.email}</a>

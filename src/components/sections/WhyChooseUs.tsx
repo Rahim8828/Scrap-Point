@@ -44,19 +44,19 @@ export function WhyChooseUs() {
           </div>
         </ScrollReveal>
 
-        {/* Grid — 2 cols mobile, 3 tablet, 5 desktop */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        {/* Grid — 2 cols mobile, 3 tablet, 4 desktop */}
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {WHY_CHOOSE_US.map((item) => {
             const Icon = ICON_MAP[item.icon];
             return (
               <StaggerItem key={item.title}>
-                <div className="group flex flex-col p-6 rounded-2xl border border-white/8 bg-white/3 hover:bg-white/8 hover:border-white/14 transition-all duration-300 h-full cursor-default">
+                <div className="group flex flex-col p-7 rounded-2xl border border-white/8 bg-white/3 hover:bg-white/8 hover:border-white/14 transition-all duration-300 h-full cursor-default">
                   {/* Icon */}
-                  <div className="w-10 h-10 rounded-xl bg-white/6 flex items-center justify-center mb-5 group-hover:bg-white/12 transition-colors shrink-0">
-                    {Icon && <Icon size={17} className="text-white/55" strokeWidth={1.5} />}
+                  <div className="w-11 h-11 rounded-xl bg-white/6 flex items-center justify-center mb-5 group-hover:bg-white/12 transition-colors shrink-0">
+                    {Icon && <Icon size={18} className="text-white/55" strokeWidth={1.5} />}
                   </div>
                   {/* Text */}
-                  <h3 className="text-white font-bold text-sm mb-2.5 leading-snug">
+                  <h3 className="text-white font-bold text-sm mb-3 leading-snug">
                     {item.title}
                   </h3>
                   <p className="text-white/40 text-xs leading-relaxed">

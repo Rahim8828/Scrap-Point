@@ -33,12 +33,9 @@ export function OurProcess() {
               <div className="group relative p-6 lg:p-7 rounded-2xl border border-[#E8E8E8] bg-white hover:bg-[#1A1A1A] hover:border-[#1A1A1A] transition-all duration-300 h-full">
                 {/* Step number */}
                 <div className="flex items-center justify-between mb-5">
-                  <span className="text-5xl font-black text-[#EBEBEB] group-hover:text-white/8 transition-colors leading-none select-none">
+                  <span className="text-4xl font-black text-[#D8D8D8] group-hover:text-white/10 transition-colors leading-none select-none">
                     {String(step.step).padStart(2, "0")}
                   </span>
-                  {i % 4 !== 3 && (
-                    <div className="hidden lg:block w-5 h-px bg-[#E8E8E8] group-hover:bg-white/15 transition-colors" />
-                  )}
                 </div>
                 <h3 className="text-[#1A1A1A] group-hover:text-white font-bold text-sm mb-2.5 leading-snug transition-colors">
                   {step.title}
