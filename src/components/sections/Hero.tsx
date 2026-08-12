@@ -7,9 +7,9 @@ import { COMPANY } from "@/lib/constants";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[100svh] flex items-end overflow-hidden">
+    <section className="relative flex items-end min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-4.5rem)] xl:min-h-[calc(100svh-6.75rem)]">
       {/* Full-bleed industrial image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-image-motion"
           style={{
@@ -20,19 +20,19 @@ export function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(105deg, rgba(15,22,28,0.88) 0%, rgba(15,22,28,0.55) 48%, rgba(15,22,28,0.35) 100%)",
+              "linear-gradient(105deg, rgba(15,22,28,0.90) 0%, rgba(15,22,28,0.62) 45%, rgba(15,22,28,0.40) 100%)",
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(15,22,28,0.75) 0%, transparent 45%)",
+              "linear-gradient(to top, rgba(15,22,28,0.82) 0%, rgba(15,22,28,0.35) 42%, transparent 70%)",
           }}
         />
       </div>
 
-      <div className="container-custom relative z-10 w-full pb-16 pt-32 sm:pb-20 lg:pb-24 lg:pt-36">
+      <div className="container-custom relative z-10 w-full pt-24 pb-28 md:pb-16 lg:pb-20 lg:pt-28">
         <div className="max-w-3xl">
           {/* Brand — hero-level signal */}
           <motion.p
@@ -41,10 +41,10 @@ export function Hero() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-white uppercase"
             style={{
-              fontSize: "clamp(3.25rem, 9vw, 6.5rem)",
+              fontSize: "clamp(2.35rem, 8vw, 5.25rem)",
               fontWeight: 800,
               letterSpacing: "0.02em",
-              lineHeight: 0.92,
+              lineHeight: 0.95,
             }}
           >
             Scrap Point
@@ -54,19 +54,19 @@ export function Hero() {
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="mt-5 h-[3px] w-16 bg-[#C2612A] origin-left"
+            className="mt-3 sm:mt-4 h-[3px] w-14 sm:w-16 bg-[#C2612A] origin-left"
           />
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 text-white/95 font-display uppercase"
+            className="mt-4 sm:mt-5 text-white/95 font-display uppercase"
             style={{
-              fontSize: "clamp(1.35rem, 2.8vw, 2rem)",
+              fontSize: "clamp(1.05rem, 2.2vw, 1.65rem)",
               fontWeight: 600,
               letterSpacing: "0.04em",
-              lineHeight: 1.25,
+              lineHeight: 1.3,
               maxWidth: "28ch",
             }}
           >
@@ -77,8 +77,8 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.4, ease: "easeOut" }}
-            className="mt-5 text-white/65 max-w-md leading-relaxed"
-            style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.05rem)" }}
+            className="mt-3 sm:mt-4 text-white/70 max-w-md leading-relaxed"
+            style={{ fontSize: "clamp(0.9rem, 1.4vw, 1.05rem)" }}
           >
             Transparent pricing, on-site inspection, and same-day payment for
             factories, plants, and warehouses.
@@ -88,7 +88,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.52, ease: "easeOut" }}
-            className="flex flex-wrap gap-3 mt-9"
+            className="flex flex-wrap gap-3 mt-6 sm:mt-7"
           >
             <Link
               href="/request-inspection"

@@ -26,10 +26,11 @@ export default function IndustriesPage() {
             {INDUSTRIES.map((industry) => (
               <StaggerItem key={industry.id}>
                 <article className="group">
-                  <div
-                    className="aspect-[16/10] bg-cover bg-center relative overflow-hidden"
-                    style={{ backgroundImage: `url('${industry.image}')` }}
-                  >
+                  <div className="relative h-44 sm:h-48 overflow-hidden bg-surface">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                      style={{ backgroundImage: `url('${industry.image}')` }}
+                    />
                     <div className="absolute inset-0 bg-ink/20 group-hover:bg-ink/35 transition-colors" />
                   </div>
                   <h2 className="mt-4 font-display text-xl uppercase tracking-wide text-ink font-700 group-hover:text-copper transition-colors">

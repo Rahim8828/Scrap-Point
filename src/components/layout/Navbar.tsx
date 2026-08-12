@@ -92,7 +92,7 @@ export function Navbar() {
               </span>
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2">
               {NAV_LINKS.map((link) => (
                 <div
                   key={link.label}
@@ -105,7 +105,7 @@ export function Navbar() {
                   <Link
                     href={link.href}
                     className={cn(
-                      "flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-md transition-colors duration-150",
+                      "flex items-center gap-1.5 px-3.5 xl:px-4 py-2 text-[13px] xl:text-sm font-semibold rounded-md transition-colors duration-150",
                       pathname === link.href ||
                         (pathname.startsWith(link.href + "/") && link.href !== "/")
                         ? "text-ink bg-surface"

@@ -12,6 +12,8 @@
   --color-paper:         #F7F9FB;
   --color-line:          #D4DAE0;
   --color-muted:         #6B7A86;
+  --color-white:         #FFFFFF;
+  --color-black:         #000000;
 
   /* Legacy aliases kept for gradual migration */
   --color-primary:       #4A5C68;
@@ -54,24 +56,30 @@
 }
 
 /* ─── Base ──────────────────────────────────────── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.65;
+  }
 
-body {
-  background-color: var(--color-paper);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.65;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
 }
 
 /* Soft industrial atmosphere — cool steel wash, not flat gray */

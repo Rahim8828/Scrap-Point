@@ -21,11 +21,12 @@ export function IndustriesServed() {
           {INDUSTRIES.map((industry) => (
             <StaggerItem key={industry.id}>
               <article className="group">
-                <div
-                  className="aspect-[16/10] bg-cover bg-center relative overflow-hidden"
-                  style={{ backgroundImage: `url('${industry.image}')` }}
-                >
-                  <div className="absolute inset-0 bg-ink/25 group-hover:bg-ink/40 transition-colors duration-400" />
+                <div className="relative h-44 sm:h-48 overflow-hidden bg-surface">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                    style={{ backgroundImage: `url('${industry.image}')` }}
+                  />
+                  <div className="absolute inset-0 bg-ink/25 group-hover:bg-ink/40 transition-colors duration-300" />
                 </div>
                 <h3 className="mt-4 font-display text-ink uppercase tracking-wide text-xl font-700 group-hover:text-copper transition-colors">
                   {industry.name}

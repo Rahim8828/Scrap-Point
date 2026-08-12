@@ -8,7 +8,7 @@ export function TrustedBy() {
     <section className="bg-paper border-b border-line">
       {/* Stats — moved out of hero */}
       <div className="container-custom py-10 lg:py-12">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 py-2">
           {STATS.map((stat) => (
             <div key={stat.label} className="text-center lg:text-left lg:pl-4 lg:border-l border-line first:border-l-0 first:pl-0">
               <div
@@ -43,11 +43,11 @@ export function TrustedBy() {
 
           <div className="animate-marquee" aria-hidden>
             {doubled.map((name, i) => (
-              <div key={i} className="flex-shrink-0 mx-6">
+              <div key={i} className="flex-shrink-0 flex items-center gap-6 mx-2">
                 <span className="text-sm font-semibold tracking-[0.12em] uppercase text-steel/70 whitespace-nowrap">
                   {name}
                 </span>
-                <span className="ml-6 text-copper/50" aria-hidden>
+                <span className="text-copper/40 text-lg leading-none" aria-hidden>
                   ·
                 </span>
               </div>
