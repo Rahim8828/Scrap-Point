@@ -1,45 +1,33 @@
 import Link from "next/link";
-import { MapPin, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { CITIES } from "@/lib/constants";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/ScrollReveal";
 
 export function CoverageSection() {
   return (
-    <section className="section-padding bg-[#F8F8F8]">
+    <section className="section-padding bg-surface">
       <div className="container-custom">
         <ScrollReveal>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
-            <div>
-              <span className="label-text block mb-3">Pan Gujarat Coverage</span>
-              <h2 className="heading-lg text-[#1A1A1A]">
-                We Operate
-                <br />
-                Across Gujarat
-              </h2>
-            </div>
-            <p className="body-lg max-w-sm text-sm">
-              Active procurement operations in 25+ cities covering all
-              major GIDC estates, industrial zones, and ports.
+          <div className="max-w-2xl mb-12">
+            <span className="label-text block mb-4">Pan Gujarat Coverage</span>
+            <h2 className="heading-lg text-ink">We Operate Across Gujarat</h2>
+            <p className="mt-4 body-lg max-w-md">
+              Active procurement in 25+ cities covering GIDC estates, industrial zones, and ports.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* City Grid */}
-        <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+        <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-x-4 gap-y-6">
           {CITIES.map((city) => (
             <StaggerItem key={city.slug}>
               <Link
                 href={`/locations/${city.slug}`}
-                className="group flex flex-col items-start p-4 bg-white border border-[#E8E8E8] hover:border-[#222222] hover:bg-[#1A1A1A] rounded-2xl transition-all duration-300"
+                className="group block"
               >
-                <MapPin
-                  size={15}
-                  className="text-[#5E5E5E] group-hover:text-white/60 mb-2.5 transition-colors"
-                />
-                <span className="text-sm font-700 text-[#1A1A1A] group-hover:text-white transition-colors leading-tight">
+                <span className="block font-display text-lg uppercase tracking-wide text-ink font-700 group-hover:text-copper transition-colors">
                   {city.name}
                 </span>
-                <span className="text-[10px] text-[#AAAAAA] group-hover:text-white/40 mt-0.5 transition-colors">
+                <span className="block text-[11px] text-muted mt-0.5">
                   {city.region}
                 </span>
               </Link>
@@ -47,25 +35,14 @@ export function CoverageSection() {
           ))}
         </StaggerContainer>
 
-        {/* Additional coverage note */}
-        <ScrollReveal delay={0.3}>
-          <div className="mt-8 p-6 bg-white border border-[#E8E8E8] rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F8F8F8] border border-[#E8E8E8] flex items-center justify-center flex-shrink-0">
-                <MapPin size={17} className="text-[#5E5E5E]" />
-              </div>
-              <div>
-                <p className="font-700 text-[#1A1A1A] text-sm">
-                  Also covering all surrounding industrial areas
-                </p>
-                <p className="text-xs text-[#5E5E5E] mt-0.5">
-                  Including Halol, Savli, Waghodia, Palanpur, Unjha, Kalol, and all GIDC estates
-                </p>
-              </div>
-            </div>
+        <ScrollReveal delay={0.25}>
+          <div className="mt-12 pt-8 border-t border-line flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <p className="text-sm text-muted max-w-lg">
+              Also covering Halol, Savli, Waghodia, Palanpur, Unjha, Kalol, and surrounding GIDC estates.
+            </p>
             <Link
               href="/locations"
-              className="flex items-center gap-1.5 text-sm font-600 text-[#222222] border border-[#E8E8E8] hover:border-[#5E5E5E] px-4 py-2.5 rounded-xl transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-ink border-b border-copper pb-1 hover:text-copper transition-colors shrink-0"
             >
               View Full Coverage <ArrowRight size={13} />
             </Link>

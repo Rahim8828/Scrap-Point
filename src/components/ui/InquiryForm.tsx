@@ -60,15 +60,15 @@ export function InquiryForm({
   };
 
   const inputClass = cn(
-    "w-full px-4 py-3 rounded-xl text-sm border outline-none transition-all duration-200",
+    "w-full px-4 py-3 rounded-lg text-sm border outline-none transition-all duration-200",
     isDark
       ? "bg-white/8 border-white/12 text-white placeholder:text-white/40 focus:border-white/30 focus:bg-white/12"
-      : "bg-white border-[#E8E8E8] text-[#1A1A1A] placeholder:text-[#AAAAAA] focus:border-[#5E5E5E]"
+      : "bg-white border-line text-ink placeholder:text-muted focus:border-steel"
   );
 
   const labelClass = cn(
     "block text-xs font-600 mb-1.5",
-    isDark ? "text-[#AAAAAA]" : "text-[#5E5E5E]"
+    isDark ? "text-white/50" : "text-muted"
   );
 
   const errorClass = "text-xs text-red-400 mt-1";
@@ -77,28 +77,28 @@ export function InquiryForm({
     return (
       <div
         className={cn(
-          "flex flex-col items-center justify-center text-center p-12 rounded-2xl",
-          isDark ? "bg-white/8" : "bg-white",
+          "flex flex-col items-center justify-center text-center p-12 border",
+          isDark ? "bg-white/8 border-white/10" : "bg-paper border-line",
           className
         )}
         style={{ minHeight: 380 }}
       >
-        <CheckCircle2 size={48} className="text-green-400 mb-4" />
+        <CheckCircle2 size={48} className="text-copper mb-4" />
         <h3
           className={cn(
             "text-xl font-700 mb-2",
-            isDark ? "text-white" : "text-[#1A1A1A]"
+            isDark ? "text-white" : "text-ink"
           )}
         >
           Inquiry Received!
         </h3>
-        <p className={cn("text-sm", isDark ? "text-[#AAA]" : "text-[#5E5E5E]")}>
+        <p className={cn("text-sm", isDark ? "text-white/55" : "text-muted")}>
           Our team will contact you within 2 hours to schedule an inspection.
         </p>
         <p
           className={cn(
             "text-sm font-600 mt-4",
-            isDark ? "text-white" : "text-[#1A1A1A]"
+            isDark ? "text-white" : "text-ink"
           )}
         >
           Or call us directly:{" "}
@@ -114,11 +114,10 @@ export function InquiryForm({
     <form
       onSubmit={handleSubmit(onSubmit)}
       className={cn(
-        "rounded-2xl p-6 lg:p-8 space-y-5",
-        isDark ? "bg-white/6 border border-white/10" : "bg-white border border-[#E8E8E8]",
+        "p-6 lg:p-8 space-y-5 border",
+        isDark ? "bg-white/6 border-white/10" : "bg-paper border-line",
         className
       )}
-      style={{ boxShadow: isDark ? "none" : "0 4px 24px rgba(0,0,0,0.06)" }}
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {/* Name */}
@@ -235,8 +234,8 @@ export function InquiryForm({
         id="inquiry-submit"
         disabled={isSubmitting}
         className={cn(
-          "w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-600 text-sm transition-all",
-          "bg-[#222222] text-white hover:bg-[#111111] disabled:opacity-60 disabled:cursor-not-allowed"
+          "w-full flex items-center justify-center gap-2 py-3.5 rounded-lg font-600 text-sm transition-all",
+          "bg-copper text-white hover:bg-copper-hover disabled:opacity-60 disabled:cursor-not-allowed"
         )}
       >
         {isSubmitting ? (
@@ -255,7 +254,7 @@ export function InquiryForm({
       <p
         className={cn(
           "text-center text-xs",
-          isDark ? "text-[#666]" : "text-[#AAAAAA]"
+          isDark ? "text-white/40" : "text-muted"
         )}
       >
         Our team responds within 2 hours during business hours.

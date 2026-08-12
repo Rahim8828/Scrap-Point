@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Barlow_Condensed, Sora } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -12,11 +12,18 @@ import {
   websiteSchema,
 } from "@/lib/schema";
 
-const inter = Inter({
+const sora = Sora({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sora",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const barlow = Barlow_Condensed({
+  subsets: ["latin"],
+  variable: "--font-barlow",
+  display: "swap",
+  weight: ["500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -43,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${sora.variable} ${barlow.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -64,9 +71,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans bg-light-bg text-near-black antialiased">
+      <body className="font-sans bg-paper text-ink antialiased">
         <Navbar />
-        <main>{children}</main>
+        <main className="pb-14 md:pb-0">{children}</main>
         <Footer />
         <FloatingWhatsApp />
         <StickyCallButton />

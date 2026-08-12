@@ -31,51 +31,43 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "bg-[#111111] text-white relative overflow-hidden",
-        compact ? "py-14 lg:py-20" : "py-20 lg:py-28",
+        "relative overflow-hidden bg-ink text-white",
+        compact ? "py-14 lg:py-18" : "py-18 lg:py-24",
         className
       )}
     >
-      {/* Background texture */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-40"
         style={{
-          backgroundImage: `repeating-linear-gradient(
-            45deg,
-            #fff 0px,
-            #fff 1px,
-            transparent 1px,
-            transparent 60px
-          )`,
+          background:
+            "radial-gradient(ellipse 70% 80% at 100% 0%, rgba(194,97,42,0.25), transparent 55%), linear-gradient(135deg, #1B2429 0%, #243039 100%)",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#111111] to-[#0a0a0a]" />
 
       <div className="container-custom relative z-10">
-        {/* Breadcrumbs */}
         {breadcrumbs && (
           <nav aria-label="breadcrumb" className="mb-6">
             <ol className="flex items-center gap-1.5 flex-wrap">
               <li>
                 <Link
                   href="/"
-                  className="text-xs text-[#777] hover:text-[#aaa] transition-colors"
+                  className="text-xs text-white/45 hover:text-white/70 transition-colors"
                 >
                   Home
                 </Link>
               </li>
               {breadcrumbs.map((crumb, i) => (
                 <li key={i} className="flex items-center gap-1.5">
-                  <ChevronRight size={10} className="text-[#555]" />
+                  <ChevronRight size={10} className="text-white/30" />
                   {crumb.href ? (
                     <Link
                       href={crumb.href}
-                      className="text-xs text-[#777] hover:text-[#aaa] transition-colors"
+                      className="text-xs text-white/45 hover:text-white/70 transition-colors"
                     >
                       {crumb.label}
                     </Link>
                   ) : (
-                    <span className="text-xs text-[#aaa]">{crumb.label}</span>
+                    <span className="text-xs text-white/70">{crumb.label}</span>
                   )}
                 </li>
               ))}
@@ -83,42 +75,29 @@ export function PageHero({
           </nav>
         )}
 
-        {/* Label */}
         {label && (
-          <div className="inline-flex items-center gap-2 mb-4">
-            <div className="w-6 h-px bg-[#555]" />
-            <span className="label-text text-[#777]">{label}</span>
-          </div>
+          <span className="inline-block text-[11px] font-semibold tracking-[0.16em] uppercase text-copper mb-4">
+            {label}
+          </span>
         )}
 
-        {/* Title */}
-        <h1
-          className="text-white font-black leading-tight"
-          style={{
-            fontSize: "clamp(2rem, 4vw, 3.25rem)",
-            letterSpacing: "-0.02em",
-            maxWidth: "720px",
-          }}
+        <h1 className="font-display text-white uppercase tracking-wide font-800 leading-tight max-w-3xl"
+          style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)" }}
         >
           {title}
         </h1>
 
-        {/* Description */}
         {description && (
-          <p
-            className="mt-4 text-[#999] leading-relaxed"
-            style={{ fontSize: "1.0625rem", maxWidth: "580px" }}
-          >
+          <p className="mt-4 text-white/55 leading-relaxed max-w-xl" style={{ fontSize: "1.05rem" }}>
             {description}
           </p>
         )}
 
-        {/* CTA */}
         {ctaText && (
           <div className="mt-8">
             <Link
               href={ctaHref}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#111111] font-600 text-sm rounded-xl hover:bg-[#F0F0F0] transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-copper text-white font-semibold text-sm rounded-lg hover:bg-copper-hover transition-colors"
             >
               {ctaText}
               <ArrowRight size={14} />

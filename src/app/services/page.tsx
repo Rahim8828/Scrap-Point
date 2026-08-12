@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/ScrollReveal";
-import { SERVICES, SERVICE_CATEGORIES } from "@/lib/constants";
+import { SERVICE_CATEGORIES } from "@/lib/constants";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -22,34 +22,34 @@ export default function ServicesPage() {
         breadcrumbs={[{ label: "Services" }]}
       />
 
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-paper">
         <div className="container-custom space-y-14">
-          {SERVICE_CATEGORIES.map((cat, ci) => (
+          {SERVICE_CATEGORIES.map((cat) => (
             <div key={cat.category}>
               <ScrollReveal>
                 <div className="flex items-center gap-4 mb-8">
-                  <span className="text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full bg-[#1A1A1A] text-white whitespace-nowrap shrink-0">
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-copper whitespace-nowrap shrink-0">
                     {cat.category}
                   </span>
-                  <div className="flex-1 h-px bg-[#E8E8E8]" />
+                  <div className="flex-1 h-px bg-line" />
                 </div>
               </ScrollReveal>
 
-              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
                 {cat.items.map((svc) => (
                   <StaggerItem key={svc.slug}>
                     <Link
                       href={`/services/${svc.slug}`}
-                      className="group flex flex-col p-6 bg-[#F8F8F8] border border-[#E8E8E8] hover:bg-[#1A1A1A] hover:border-[#1A1A1A] rounded-2xl transition-all duration-300 h-full"
+                      className="group block border-t border-line pt-5 hover:border-copper transition-colors h-full"
                     >
-                      <h3 className="text-[#1A1A1A] group-hover:text-white font-bold text-sm mb-2 transition-colors leading-snug">
+                      <h3 className="font-display text-lg uppercase tracking-wide text-ink group-hover:text-copper font-700 mb-2 transition-colors leading-snug">
                         {svc.title}
                       </h3>
-                      <p className="text-[#5E5E5E] group-hover:text-white/55 text-xs leading-relaxed transition-colors flex-1">
+                      <p className="text-muted text-sm leading-relaxed">
                         {svc.shortDescription}
                       </p>
-                      <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-[#AAAAAA] group-hover:text-white/50 transition-colors">
-                        Learn More <ArrowRight size={11} />
+                      <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-ink group-hover:gap-2.5 transition-all">
+                        Learn More <ArrowRight size={12} />
                       </div>
                     </Link>
                   </StaggerItem>

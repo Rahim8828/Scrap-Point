@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { TESTIMONIALS } from "@/lib/constants";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Testimonials() {
@@ -12,119 +12,81 @@ export function Testimonials() {
   const next = () => setCurrent((c) => (c + 1) % TESTIMONIALS.length);
 
   return (
-    <section className="section-padding bg-[#F8F8F8] overflow-hidden">
+    <section className="section-padding bg-surface overflow-hidden">
       <div className="container-custom">
-
-        {/* Header */}
         <ScrollReveal>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
-            <div>
-              <span className="inline-block text-[11px] font-semibold tracking-[0.18em] uppercase text-[#AAAAAA] mb-3">
-                Client Feedback
-              </span>
-              <h2
-                className="font-black text-[#1A1A1A] leading-tight"
-                style={{ fontSize: "clamp(2rem, 3.5vw, 2.75rem)", letterSpacing: "-0.025em" }}
-              >
-                What Our
-                <br />
-                Clients Say
-              </h2>
-            </div>
-            <p className="text-sm text-[#5E5E5E] max-w-xs leading-relaxed">
-              Trusted by plant managers, procurement heads, and industrial facility owners across Gujarat.
+          <div className="max-w-xl mb-12">
+            <span className="label-text block mb-4">Client Feedback</span>
+            <h2 className="heading-lg text-ink">What Our Clients Say</h2>
+            <p className="mt-4 body-lg">
+              Trusted by plant managers and procurement heads across Gujarat.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Desktop: 3 + 2 layout */}
-        <div className="hidden lg:block space-y-4">
-          <div className="grid grid-cols-3 gap-4">
-            {TESTIMONIALS.slice(0, 3).map((t, i) => (
-              <ScrollReveal key={t.name} delay={i * 0.1}>
-                <TestimonialCard t={t} />
-              </ScrollReveal>
-            ))}
-          </div>
-          <div className="grid grid-cols-2 gap-4 max-w-3xl mx-auto">
-            {TESTIMONIALS.slice(3).map((t, i) => (
-              <ScrollReveal key={t.name} delay={(i + 3) * 0.1}>
-                <TestimonialCard t={t} />
-              </ScrollReveal>
-            ))}
-          </div>
+        <div className="hidden lg:grid lg:grid-cols-2 gap-x-12 gap-y-10">
+          {TESTIMONIALS.map((t, i) => (
+            <ScrollReveal key={t.name} delay={i * 0.06}>
+              <blockquote className="border-l-2 border-copper pl-6">
+                <p className="text-ink-soft text-base leading-relaxed">
+                  &ldquo;{t.text}&rdquo;
+                </p>
+                <footer className="mt-5">
+                  <div className="font-semibold text-ink text-sm">{t.name}</div>
+                  <div className="text-xs text-muted mt-0.5">
+                    {t.role} · {t.company}
+                  </div>
+                </footer>
+              </blockquote>
+            </ScrollReveal>
+          ))}
         </div>
 
-        {/* Mobile slider */}
         <div className="lg:hidden">
-          <div className="relative overflow-hidden rounded-2xl bg-white border border-[#E8E8E8]">
+          <div className="border-l-2 border-copper pl-5 min-h-[200px]">
             <AnimatePresence mode="wait">
-              <motion.div
+              <motion.blockquote
                 key={current}
-                initial={{ opacity: 0, x: 32 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -32 }}
-                transition={{ duration: 0.25 }}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.22 }}
               >
-                <TestimonialCard t={TESTIMONIALS[current]} />
-              </motion.div>
+                <p className="text-ink-soft text-base leading-relaxed">
+                  &ldquo;{TESTIMONIALS[current].text}&rdquo;
+                </p>
+                <footer className="mt-5">
+                  <div className="font-semibold text-ink text-sm">
+                    {TESTIMONIALS[current].name}
+                  </div>
+                  <div className="text-xs text-muted mt-0.5">
+                    {TESTIMONIALS[current].role} · {TESTIMONIALS[current].company}
+                  </div>
+                </footer>
+              </motion.blockquote>
             </AnimatePresence>
           </div>
-          {/* Slider controls */}
-          <div className="flex items-center justify-center gap-4 mt-5">
+          <div className="flex items-center gap-4 mt-6">
             <button
               onClick={prev}
-              className="w-9 h-9 rounded-xl border border-[#E8E8E8] flex items-center justify-center hover:border-[#5E5E5E] transition-colors"
+              aria-label="Previous testimonial"
+              className="w-10 h-10 border border-line flex items-center justify-center hover:border-steel transition-colors"
             >
-              <ChevronLeft size={15} className="text-[#5E5E5E]" />
+              <ChevronLeft size={16} className="text-steel" />
             </button>
-            <div className="flex gap-1.5">
-              {TESTIMONIALS.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrent(i)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    i === current ? "w-5 bg-[#1A1A1A]" : "w-1.5 bg-[#CCCCCC]"
-                  }`}
-                />
-              ))}
-            </div>
+            <span className="text-xs font-semibold text-muted tracking-wider">
+              {current + 1} / {TESTIMONIALS.length}
+            </span>
             <button
               onClick={next}
-              className="w-9 h-9 rounded-xl border border-[#E8E8E8] flex items-center justify-center hover:border-[#5E5E5E] transition-colors"
+              aria-label="Next testimonial"
+              className="w-10 h-10 border border-line flex items-center justify-center hover:border-steel transition-colors"
             >
-              <ChevronRight size={15} className="text-[#5E5E5E]" />
+              <ChevronRight size={16} className="text-steel" />
             </button>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function TestimonialCard({ t }: { t: typeof TESTIMONIALS[number] }) {
-  return (
-    <div className="p-7 bg-white border border-[#E8E8E8] rounded-2xl h-full flex flex-col hover:shadow-md transition-shadow duration-300">
-      <Quote size={24} className="text-[#EBEBEB] mb-4 shrink-0" />
-      <p className="text-[#5E5E5E] text-sm leading-relaxed flex-1 mb-5">
-        &ldquo;{t.text}&rdquo;
-      </p>
-      <div className="flex items-center gap-0.5 mb-4">
-        {Array.from({ length: t.rating }).map((_, i) => (
-          <Star key={i} size={12} className="text-amber-400 fill-amber-400" />
-        ))}
-      </div>
-      <div className="flex items-center gap-3 pt-4 border-t border-[#F0F0F0]">
-        <div className="w-9 h-9 rounded-full bg-[#1A1A1A] flex items-center justify-center shrink-0">
-          <span className="text-xs font-bold text-white">
-            {t.name.charAt(0)}
-          </span>
-        </div>
-        <div>
-          <div className="font-bold text-[#1A1A1A] text-sm">{t.name}</div>
-          <div className="text-[11px] text-[#AAAAAA]">{t.role} · {t.company}</div>
-        </div>
-      </div>
-    </div>
   );
 }

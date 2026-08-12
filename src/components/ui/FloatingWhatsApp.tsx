@@ -16,22 +16,15 @@ export function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg"
+      className="fixed bottom-20 right-5 md:bottom-6 md:right-6 z-50 w-12 h-12 rounded-lg flex items-center justify-center text-white shadow-lg"
       style={{ background: "#25D366" }}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 1.5, type: "spring", stiffness: 200, damping: 15 }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
+      transition={{ delay: 1.2, type: "spring", stiffness: 200, damping: 16 }}
+      whileHover={{ scale: 1.06 }}
+      whileTap={{ scale: 0.96 }}
     >
-      {/* Pulse ring */}
-      <motion.span
-        className="absolute inset-0 rounded-full"
-        style={{ background: "#25D366" }}
-        animate={{ scale: [1, 1.4], opacity: [0.4, 0] }}
-        transition={{ repeat: Infinity, duration: 2, ease: "easeOut" }}
-      />
-      <MessageCircle size={26} fill="white" strokeWidth={0} />
+      <MessageCircle size={22} fill="white" strokeWidth={0} />
     </motion.a>
   );
 }
