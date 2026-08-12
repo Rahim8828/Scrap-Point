@@ -24,29 +24,26 @@ export default function ScrapCategoriesPage() {
         breadcrumbs={[{ label: "Scrap Categories" }]}
       />
 
-      <section className="section-padding bg-white">
-        <div className="container-custom space-y-12">
+      <section className="section-padding bg-paper">
+        <div className="container-custom space-y-14">
           {groups.map((group) => (
             <div key={group}>
               <ScrollReveal>
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-[10px] font-700 tracking-widest uppercase px-3 py-1.5 rounded-full bg-[#1A1A1A] text-white">
+                  <span className="text-[10px] font-700 tracking-widest uppercase text-copper">
                     {group}
                   </span>
-                  <div className="flex-1 h-px bg-[#E8E8E8]" />
+                  <div className="flex-1 h-px bg-line" />
                 </div>
               </ScrollReveal>
-              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-8">
                 {SCRAP_CATEGORIES.filter((c) => c.group === group).map((cat) => (
                   <StaggerItem key={cat.id}>
-                    <div
-                      id={cat.id}
-                      className="group p-5 bg-[#F8F8F8] border border-[#E8E8E8] hover:bg-[#1A1A1A] hover:border-[#1A1A1A] rounded-2xl transition-all duration-300 h-full"
-                    >
-                      <h3 className="font-700 text-[#1A1A1A] group-hover:text-white text-sm mb-2 transition-colors">
+                    <div id={cat.id} className="border-t border-line pt-4">
+                      <h3 className="font-display text-lg uppercase tracking-wide text-ink font-700">
                         {cat.name}
                       </h3>
-                      <p className="text-xs text-[#5E5E5E] group-hover:text-white/55 leading-relaxed transition-colors">
+                      <p className="mt-2 text-sm text-muted leading-relaxed">
                         {cat.description}
                       </p>
                     </div>
@@ -57,10 +54,12 @@ export default function ScrapCategoriesPage() {
           ))}
 
           <ScrollReveal>
-            <div className="mt-6 p-6 bg-[#F8F8F8] border border-[#E8E8E8] rounded-2xl flex flex-col sm:flex-row items-center gap-4 justify-between">
+            <div className="pt-8 border-t border-line flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
               <div>
-                <p className="font-700 text-[#1A1A1A] text-sm">Have a different type of scrap?</p>
-                <p className="text-xs text-[#5E5E5E] mt-1">Contact us — we likely purchase it.</p>
+                <p className="font-display text-xl uppercase tracking-wide text-ink font-700">
+                  Have a different type of scrap?
+                </p>
+                <p className="text-sm text-muted mt-1">Contact us — we likely purchase it.</p>
               </div>
               <Link href="/contact" className="btn-primary text-sm whitespace-nowrap">
                 Contact Us <ArrowRight size={13} />

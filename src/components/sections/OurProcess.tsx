@@ -3,44 +3,29 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/Scr
 
 export function OurProcess() {
   return (
-    <section className="section-padding bg-[#F8F8F8]">
+    <section className="section-padding bg-paper">
       <div className="container-custom">
         <ScrollReveal>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
-            <div>
-              <span className="inline-block text-[11px] font-semibold tracking-[0.18em] uppercase text-[#AAAAAA] mb-4">
-                End-to-End Process
-              </span>
-              <h2
-                className="font-black text-[#1A1A1A] leading-tight"
-                style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", letterSpacing: "-0.025em" }}
-              >
-                Our
-                <br />
-                Procurement Process
-              </h2>
-            </div>
-            <p className="text-sm text-[#5E5E5E] max-w-sm leading-relaxed">
-              A systematic 8-step process ensures complete transparency,
-              safety, and maximum value at every stage.
+          <div className="max-w-2xl mb-14">
+            <span className="label-text block mb-4">End-to-End</span>
+            <h2 className="heading-lg text-ink">Our Procurement Process</h2>
+            <p className="mt-4 body-lg max-w-md">
+              Eight systematic steps for transparency, safety, and maximum value.
             </p>
           </div>
         </ScrollReveal>
 
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {OUR_PROCESS.map((step, i) => (
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+          {OUR_PROCESS.map((step) => (
             <StaggerItem key={step.step}>
-              <div className="group relative p-6 lg:p-7 rounded-2xl border border-[#E8E8E8] bg-white hover:bg-[#1A1A1A] hover:border-[#1A1A1A] transition-all duration-300 h-full">
-                {/* Step number */}
-                <div className="flex items-center justify-between mb-5">
-                  <span className="text-4xl font-black text-[#D8D8D8] group-hover:text-white/10 transition-colors leading-none select-none">
-                    {String(step.step).padStart(2, "0")}
-                  </span>
-                </div>
-                <h3 className="text-[#1A1A1A] group-hover:text-white font-bold text-sm mb-2.5 leading-snug transition-colors">
+              <div className="border-t-2 border-copper pt-5 h-full">
+                <span className="font-display text-4xl text-steel/25 font-800 leading-none">
+                  {String(step.step).padStart(2, "0")}
+                </span>
+                <h3 className="mt-3 font-display text-lg uppercase tracking-wide text-ink font-700">
                   {step.title}
                 </h3>
-                <p className="text-[#5E5E5E] group-hover:text-white/55 text-xs leading-relaxed transition-colors">
+                <p className="mt-2 text-muted text-sm leading-relaxed">
                   {step.description}
                 </p>
               </div>

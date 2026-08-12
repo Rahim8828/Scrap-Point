@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { COMPANY } from "@/lib/constants";
 import { CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -29,16 +28,15 @@ export default function AboutPage() {
         ctaText="Request Inspection"
       />
 
-      {/* Company story */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-paper">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <ScrollReveal>
               <span className="label-text block mb-3">Our Story</span>
-              <h2 className="heading-md text-[#1A1A1A] mb-6">
+              <h2 className="heading-md text-ink mb-6">
                 Built for the Industrial Sector
               </h2>
-              <div className="space-y-4 text-sm text-[#5E5E5E] leading-relaxed">
+              <div className="space-y-4 text-sm text-muted leading-relaxed">
                 <p>
                   Scrap Point was founded in Ahmedabad in 2015 with a singular mission:
                   to bring professionalism, transparency, and efficiency to industrial
@@ -60,19 +58,20 @@ export default function AboutPage() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-8">
                 {[
                   { value: "500+", label: "Factories Served" },
                   { value: "25+", label: "Cities in Gujarat" },
                   { value: "1000+", label: "MT Purchased" },
                   { value: "10+", label: "Years Experience" },
                 ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="p-6 bg-[#F8F8F8] border border-[#E8E8E8] rounded-2xl text-center"
-                  >
-                    <div className="text-3xl font-black text-[#1A1A1A]">{stat.value}</div>
-                    <div className="text-xs text-[#5E5E5E] mt-1">{stat.label}</div>
+                  <div key={stat.label} className="border-t-2 border-copper pt-4">
+                    <div className="font-display text-3xl font-800 text-ink uppercase tracking-wide">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs text-muted mt-1 uppercase tracking-wider">
+                      {stat.label}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -81,19 +80,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="section-padding bg-[#F8F8F8]">
+      <section className="section-padding bg-surface">
         <div className="container-custom">
           <ScrollReveal>
-            <h2 className="heading-md text-[#1A1A1A] mb-10 text-center">Our Core Values</h2>
+            <h2 className="heading-md text-ink mb-10">Our Core Values</h2>
           </ScrollReveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
             {VALUES.map((v, i) => (
-              <ScrollReveal key={v.title} delay={i * 0.1}>
-                <div className="p-6 bg-white border border-[#E8E8E8] rounded-2xl h-full">
-                  <CheckCircle2 size={20} className="text-[#5E5E5E] mb-4" />
-                  <h3 className="font-700 text-[#1A1A1A] text-sm mb-2">{v.title}</h3>
-                  <p className="text-xs text-[#5E5E5E] leading-relaxed">{v.description}</p>
+              <ScrollReveal key={v.title} delay={i * 0.08}>
+                <div>
+                  <CheckCircle2 size={20} className="text-copper mb-4" />
+                  <h3 className="font-display text-lg uppercase tracking-wide text-ink font-700 mb-2">
+                    {v.title}
+                  </h3>
+                  <p className="text-sm text-muted leading-relaxed">{v.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -101,17 +101,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why we're different */}
-      <section className="section-padding bg-[#111111] text-white">
+      <section className="section-padding bg-paper border-y border-line">
         <div className="container-custom">
           <ScrollReveal>
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-white font-black text-3xl mb-6" style={{ letterSpacing: "-0.02em" }}>
+            <div className="max-w-3xl">
+              <h2 className="heading-md text-ink mb-5">
                 We Are Not a Scrap Dealer.
                 <br />
                 We Are Your Procurement Partner.
               </h2>
-              <p className="text-[#999] leading-relaxed text-sm">
+              <p className="text-muted leading-relaxed text-sm max-w-2xl">
                 The difference is in how we operate. Certified weighing, transparent pricing,
                 proper GST documentation, own logistics fleet, professional teams, and
                 payment on the same day — every time, for every client.

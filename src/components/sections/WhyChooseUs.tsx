@@ -10,56 +10,39 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: 
 
 export function WhyChooseUs() {
   return (
-    <section className="section-padding bg-[#0D0D0D] text-white relative overflow-hidden">
-      {/* Subtle radial highlight */}
+    <section className="section-padding bg-paper relative overflow-hidden">
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at center top, rgba(255,255,255,0.04) 0%, transparent 70%)" }}
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(74,92,104,0.06) 0%, transparent 45%), linear-gradient(to bottom, transparent, rgba(194,97,42,0.04))",
+        }}
       />
 
       <div className="container-custom relative z-10">
-        {/* Header */}
         <ScrollReveal>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
-            <div>
-              <div className="flex items-center gap-2.5 mb-5">
-                <div className="w-8 h-px bg-white/20" />
-                <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/40">
-                  Our Advantage
-                </span>
-              </div>
-              <h2
-                className="text-white font-black leading-tight"
-                style={{ fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "-0.025em" }}
-              >
-                Why Choose
-                <br />
-                Scrap Point?
-              </h2>
-            </div>
-            <p className="text-white/40 max-w-sm leading-relaxed text-sm">
-              A decade of industrial expertise, transparent operations, and
-              proven reliability make us Gujarat&apos;s most trusted procurement partner.
+          <div className="max-w-2xl mb-14">
+            <span className="label-text block mb-4">Our Advantage</span>
+            <h2 className="heading-lg text-ink">Why Choose Scrap Point?</h2>
+            <p className="mt-4 body-lg max-w-md">
+              A decade of industrial expertise, transparent operations, and proven reliability across Gujarat.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Grid — 2 cols mobile, 3 tablet, 4 desktop */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-8 gap-y-10">
           {WHY_CHOOSE_US.map((item) => {
             const Icon = ICON_MAP[item.icon];
             return (
               <StaggerItem key={item.title}>
-                <div className="group flex flex-col p-7 rounded-2xl border border-white/8 bg-white/3 hover:bg-white/8 hover:border-white/14 transition-all duration-300 h-full cursor-default">
-                  {/* Icon */}
-                  <div className="w-11 h-11 rounded-xl bg-white/6 flex items-center justify-center mb-5 group-hover:bg-white/12 transition-colors shrink-0">
-                    {Icon && <Icon size={18} className="text-white/55" strokeWidth={1.5} />}
+                <div className="h-full">
+                  <div className="mb-4 text-copper">
+                    {Icon && <Icon size={22} strokeWidth={1.5} />}
                   </div>
-                  {/* Text */}
-                  <h3 className="text-white font-bold text-sm mb-3 leading-snug">
+                  <h3 className="font-display text-lg uppercase tracking-wide text-ink font-700 leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-white/40 text-xs leading-relaxed">
+                  <p className="mt-2 text-muted text-sm leading-relaxed">
                     {item.description}
                   </p>
                 </div>

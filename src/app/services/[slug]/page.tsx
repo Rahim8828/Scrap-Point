@@ -4,10 +4,9 @@ import { PageHero } from "@/components/ui/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/ScrollReveal";
 import { InquiryForm } from "@/components/ui/InquiryForm";
-import { SERVICES, SERVICE_DATA } from "@/lib/constants";
+import { SERVICES, SERVICE_DATA, COMPANY } from "@/lib/constants";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
-import { COMPANY } from "@/lib/constants";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -74,31 +73,32 @@ export default async function ServicePage({ params }: Props) {
         ctaText="Request Free Inspection"
       />
 
-      {/* Overview */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-paper">
         <div className="container-custom">
           <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 items-start">
             <ScrollReveal>
               <span className="label-text block mb-3">Service Overview</span>
-              <h2 className="heading-md text-[#1A1A1A] mb-5">{data.title} in Gujarat</h2>
-              <p className="text-sm text-[#5E5E5E] leading-relaxed mb-8">{data.overview}</p>
+              <h2 className="heading-md text-ink mb-5">{data.title} in Gujarat</h2>
+              <p className="text-sm text-muted leading-relaxed mb-8">{data.overview}</p>
 
-              {/* Key features */}
-              <h3 className="font-700 text-[#1A1A1A] text-sm mb-4">Key Features</h3>
+              <h3 className="font-display text-lg uppercase tracking-wide text-ink font-700 mb-4">
+                Key Features
+              </h3>
               <div className="grid sm:grid-cols-2 gap-2.5">
                 {data.keyFeatures.map((f) => (
                   <div key={f} className="flex items-start gap-2.5">
-                    <CheckCircle2 size={14} className="text-[#5E5E5E] flex-shrink-0 mt-0.5" />
-                    <span className="text-xs text-[#5E5E5E]">{f}</span>
+                    <CheckCircle2 size={14} className="text-copper flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-muted">{f}</span>
                   </div>
                 ))}
               </div>
             </ScrollReveal>
 
-            {/* Inquiry form */}
             <ScrollReveal delay={0.15}>
               <div className="lg:sticky lg:top-24">
-                <h3 className="font-700 text-[#1A1A1A] mb-4">Request Inspection</h3>
+                <h3 className="font-display text-xl uppercase tracking-wide text-ink font-700 mb-4">
+                  Request Inspection
+                </h3>
                 <InquiryForm variant="light" />
               </div>
             </ScrollReveal>
@@ -106,19 +106,16 @@ export default async function ServicePage({ params }: Props) {
         </div>
       </section>
 
-      {/* Materials we buy */}
-      <section className="section-padding bg-[#F8F8F8]">
+      <section className="section-padding bg-surface">
         <div className="container-custom">
           <ScrollReveal>
-            <h2 className="heading-md text-[#1A1A1A] mb-8 text-center">
-              Materials We Purchase
-            </h2>
+            <h2 className="heading-md text-ink mb-8">Materials We Purchase</h2>
           </ScrollReveal>
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-4">
             {data.materials.map((mat) => (
               <StaggerItem key={mat}>
-                <div className="p-4 bg-white border border-[#E8E8E8] rounded-2xl text-center hover:border-[#1A1A1A] transition-colors">
-                  <span className="text-xs font-600 text-[#1A1A1A]">{mat}</span>
+                <div className="border-t border-copper pt-3">
+                  <span className="text-sm font-600 text-ink">{mat}</span>
                 </div>
               </StaggerItem>
             ))}
@@ -126,20 +123,21 @@ export default async function ServicePage({ params }: Props) {
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="section-padding bg-[#111111] text-white">
+      <section className="section-padding bg-paper">
         <div className="container-custom">
           <ScrollReveal>
-            <h2 className="text-white font-black text-2xl mb-10 text-center" style={{ letterSpacing: "-0.02em" }}>
+            <h2 className="heading-md text-ink mb-10">
               Why Choose Us for {data.title}
             </h2>
           </ScrollReveal>
-          <StaggerContainer className="grid sm:grid-cols-3 gap-5">
+          <StaggerContainer className="grid sm:grid-cols-3 gap-x-10 gap-y-8">
             {data.benefits.map((b) => (
               <StaggerItem key={b.title}>
-                <div className="p-6 border border-white/8 bg-white/4 rounded-2xl h-full">
-                  <h3 className="text-white font-700 text-sm mb-2">{b.title}</h3>
-                  <p className="text-[#888] text-xs leading-relaxed">{b.description}</p>
+                <div className="border-t-2 border-copper pt-5 h-full">
+                  <h3 className="font-display text-lg uppercase tracking-wide text-ink font-700 mb-2">
+                    {b.title}
+                  </h3>
+                  <p className="text-muted text-sm leading-relaxed">{b.description}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -147,20 +145,17 @@ export default async function ServicePage({ params }: Props) {
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="section-padding bg-white">
-        <div className="container-custom max-w-3xl mx-auto">
+      <section className="section-padding bg-surface">
+        <div className="container-custom max-w-3xl">
           <ScrollReveal>
-            <h2 className="heading-md text-[#1A1A1A] mb-8 text-center">
-              Frequently Asked Questions
-            </h2>
+            <h2 className="heading-md text-ink mb-8">Frequently Asked Questions</h2>
           </ScrollReveal>
-          <div className="space-y-4">
+          <div className="divide-y divide-line border-y border-line">
             {data.faqs.map((faq, i) => (
-              <ScrollReveal key={i} delay={i * 0.07}>
-                <div className="p-6 bg-[#F8F8F8] border border-[#E8E8E8] rounded-2xl">
-                  <h3 className="font-700 text-[#1A1A1A] text-sm mb-2">{faq.question}</h3>
-                  <p className="text-xs text-[#5E5E5E] leading-relaxed">{faq.answer}</p>
+              <ScrollReveal key={i} delay={i * 0.06}>
+                <div className="py-6">
+                  <h3 className="font-semibold text-ink text-sm mb-2">{faq.question}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{faq.answer}</p>
                 </div>
               </ScrollReveal>
             ))}

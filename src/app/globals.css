@@ -1,19 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  /* ─── Brand Colors ─────────────────────────── */
-  --color-primary:       #5E5E5E;
-  --color-primary-hover: #4A4A4A;
-  --color-dark:          #222222;
-  --color-dark-hover:    #111111;
-  --color-near-black:    #1A1A1A;
-  --color-light-bg:      #F8F8F8;
-  --color-border-light:  #E8E8E8;
+  /* ─── Brand Colors — steel + copper industrial ─── */
+  --color-ink:           #1B2429;
+  --color-ink-soft:      #3A4A54;
+  --color-steel:         #4A5C68;
+  --color-copper:        #C2612A;
+  --color-copper-hover:  #A85222;
+  --color-copper-muted:  #E8A078;
+  --color-surface:       #E8ECF0;
+  --color-paper:         #F7F9FB;
+  --color-line:          #D4DAE0;
+  --color-muted:         #6B7A86;
+
+  /* Legacy aliases kept for gradual migration */
+  --color-primary:       #4A5C68;
+  --color-primary-hover: #3A4A54;
+  --color-dark:          #1B2429;
+  --color-dark-hover:    #11181C;
+  --color-near-black:    #1B2429;
+  --color-light-bg:      #F7F9FB;
+  --color-border-light:  #D4DAE0;
 
   /* ─── Typography ─────────────────────────────── */
-  --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: var(--font-sora), "Sora", system-ui, sans-serif;
+  --font-display: var(--font-barlow), "Barlow Condensed", sans-serif;
 
-  /* ─── Font Weights (needed for font-500, font-600, font-700, font-800) ─── */
   --font-weight-450: 450;
   --font-weight-500: 500;
   --font-weight-550: 550;
@@ -23,24 +35,21 @@
   --font-weight-750: 750;
   --font-weight-800: 800;
 
-  /* ─── Spacing (h-18, w-18 etc.) ──────────────── */
   --spacing-18: 4.5rem;
   --spacing-72: 18rem;
   --spacing-80: 20rem;
   --spacing-88: 22rem;
   --spacing-92: 23rem;
 
-  /* ─── Shadows ────────────────────────────────── */
-  --shadow-card:    0 2px 16px rgba(0, 0, 0, 0.06);
-  --shadow-hover:   0 12px 40px rgba(0, 0, 0, 0.13);
-  --shadow-premium: 0 24px 80px rgba(0, 0, 0, 0.09);
-  --shadow-nav:     0 1px 24px rgba(0, 0, 0, 0.08);
+  --shadow-card:    0 2px 16px rgba(27, 36, 41, 0.06);
+  --shadow-hover:   0 12px 36px rgba(27, 36, 41, 0.10);
+  --shadow-premium: 0 24px 64px rgba(27, 36, 41, 0.08);
+  --shadow-nav:     0 1px 20px rgba(27, 36, 41, 0.06);
 
-  /* ─── Radii ──────────────────────────────────── */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
   --radius-full: 9999px;
 }
 
@@ -57,34 +66,45 @@ html {
 }
 
 body {
-  background-color: #F8F8F8;
-  color: #1A1A1A;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-/* ─── Scrollbar ─────────────────────────────────── */
+/* Soft industrial atmosphere — cool steel wash, not flat gray */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 90% 55% at 0% 0%, rgba(194, 97, 42, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 100% 10%, rgba(74, 92, 104, 0.08) 0%, transparent 50%),
+    linear-gradient(180deg, #F0F4F7 0%, #F7F9FB 40%, #EEF2F5 100%);
+}
+
 ::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: #F8F8F8; }
-::-webkit-scrollbar-thumb { background: #C8C8C8; border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: #5E5E5E; }
+::-webkit-scrollbar-track { background: var(--color-surface); }
+::-webkit-scrollbar-thumb { background: #B0BBC4; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-steel); }
 
-/* ─── Selection ─────────────────────────────────── */
-::selection { background: #222222; color: #ffffff; }
+::selection { background: var(--color-ink); color: #ffffff; }
 
-/* ─── Focus ring ────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid #5E5E5E;
+  outline: 2px solid var(--color-copper);
   outline-offset: 2px;
 }
 
-/* ─── Links ─────────────────────────────────────── */
 a { color: inherit; text-decoration: none; }
-
-/* ─── Images ────────────────────────────────────── */
 img { max-width: 100%; display: block; }
+
+.font-display {
+  font-family: var(--font-display);
+}
 
 /* ─── Animations ────────────────────────────────── */
 @keyframes marquee {
@@ -94,7 +114,7 @@ img { max-width: 100%; display: block; }
 
 .animate-marquee {
   display: flex;
-  animation: marquee 30s linear infinite;
+  animation: marquee 32s linear infinite;
 }
 
 .animate-marquee:hover {
@@ -106,48 +126,38 @@ img { max-width: 100%; display: block; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pulse-slow {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.7; }
+@keyframes hero-kenburns {
+  0%   { transform: scale(1.05); }
+  100% { transform: scale(1.12); }
 }
 
-/* ─── Gradient overlays ──────────────────────────── */
-.hero-gradient {
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.48) 0%,
-    rgba(0,0,0,0.62) 50%,
-    rgba(0,0,0,0.76) 100%
-  );
+.hero-image-motion {
+  animation: hero-kenburns 22s ease-out forwards;
 }
 
-/* ─── Glass effect ───────────────────────────────── */
-.glass {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+@keyframes draw-line {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
-/* ─── Card hover lift ────────────────────────────── */
-.card-hover {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.card-hover:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.13);
-  transform: translateY(-4px);
+.accent-line {
+  height: 3px;
+  width: 48px;
+  background: var(--color-copper);
+  transform-origin: left;
+  animation: draw-line 0.8s ease-out 0.4s both;
 }
 
 /* ─── Section spacing ────────────────────────────── */
 .section-padding {
-  padding-top: 96px;
-  padding-bottom: 96px;
+  padding-top: 88px;
+  padding-bottom: 88px;
 }
 
 @media (max-width: 1024px) {
   .section-padding {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 72px;
+    padding-bottom: 72px;
   }
 }
 
@@ -158,10 +168,9 @@ img { max-width: 100%; display: block; }
   }
 }
 
-/* ─── Container ──────────────────────────────────── */
 .container-custom {
   width: 100%;
-  max-width: 1320px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 24px;
@@ -177,64 +186,68 @@ img { max-width: 100%; display: block; }
 }
 
 @media (min-width: 1280px) {
-  .container-custom { padding-left: 64px; padding-right: 64px; }
+  .container-custom { padding-left: 56px; padding-right: 56px; }
 }
 
-/* ─── Typography helpers ────────────────────────── */
 .heading-xl {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 .heading-lg {
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4vw, 3.25rem);
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 .heading-md {
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.8vw, 2.15rem);
   font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 .body-lg {
   font-size: 1.0625rem;
   line-height: 1.75;
+  color: var(--color-muted);
 }
 
 .label-text {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #5E5E5E;
+  color: var(--color-copper);
 }
 
-/* ─── Button base ────────────────────────────────── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 14px 28px;
-  background: #222222;
+  background: var(--color-copper);
   color: #FFFFFF;
   font-weight: 600;
   font-size: 0.9375rem;
-  border-radius: 10px;
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.2s ease;
   cursor: pointer;
   border: none;
 }
 
 .btn-primary:hover {
-  background: #111111;
+  background: var(--color-copper-hover);
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary {
@@ -243,24 +256,26 @@ img { max-width: 100%; display: block; }
   gap: 8px;
   padding: 13px 28px;
   background: transparent;
-  color: #222222;
+  color: var(--color-ink);
   font-weight: 600;
   font-size: 0.9375rem;
-  border-radius: 10px;
-  border: 1.5px solid #E8E8E8;
+  border-radius: 8px;
+  border: 1.5px solid var(--color-line);
   transition: border-color 0.2s ease, background 0.2s ease;
   cursor: pointer;
 }
 
 .btn-secondary:hover {
-  border-color: #5E5E5E;
-  background: rgba(255,255,255,0.8);
+  border-color: var(--color-steel);
+  background: rgba(255, 255, 255, 0.7);
 }
 
-/* ─── Divider ────────────────────────────────────── */
 .divider {
   width: 48px;
   height: 3px;
-  background: #222222;
-  border-radius: 99px;
+  background: var(--color-copper);
+  border-radius: 2px;
 }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

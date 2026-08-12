@@ -6,7 +6,6 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/Scr
 import { InquiryForm } from "@/components/ui/InquiryForm";
 import { CITIES, CITY_DATA, SCRAP_CATEGORIES } from "@/lib/constants";
 import { localBusinessSchema, breadcrumbSchema } from "@/lib/schema";
-import { COMPANY } from "@/lib/constants";
 import { MapPin, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
@@ -68,41 +67,35 @@ export default async function CityPage({ params }: Props) {
         ctaText={`Request Inspection in ${data.name}`}
       />
 
-      {/* Overview + Form */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-paper">
         <div className="container-custom">
           <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 items-start">
             <ScrollReveal>
               <span className="label-text block mb-3">Our Presence in {data.name}</span>
-              <h2 className="heading-md text-[#1A1A1A] mb-5">
+              <h2 className="heading-md text-ink mb-5">
                 Industrial Scrap Procurement in {data.name}
               </h2>
-              <p className="text-sm text-[#5E5E5E] leading-relaxed mb-8">{data.overview}</p>
+              <p className="text-sm text-muted leading-relaxed mb-8">{data.overview}</p>
 
-              {/* Key industries */}
-              <h3 className="font-700 text-[#1A1A1A] text-sm mb-4">
+              <h3 className="font-display text-lg uppercase tracking-wide text-ink font-700 mb-4">
                 Industries We Serve in {data.name}
               </h3>
-              <div className="flex flex-wrap gap-2 mb-8">
+              <div className="flex flex-wrap gap-x-4 gap-y-2 mb-8">
                 {data.keyIndustries.map((ind) => (
-                  <span
-                    key={ind}
-                    className="px-3 py-1.5 bg-[#F8F8F8] border border-[#E8E8E8] rounded-full text-xs font-500 text-[#5E5E5E]"
-                  >
+                  <span key={ind} className="text-sm text-muted border-b border-line pb-0.5">
                     {ind}
                   </span>
                 ))}
               </div>
 
-              {/* Industrial areas */}
-              <h3 className="font-700 text-[#1A1A1A] text-sm mb-4">
+              <h3 className="font-display text-lg uppercase tracking-wide text-ink font-700 mb-4">
                 Industrial Areas We Cover
               </h3>
               <div className="grid sm:grid-cols-2 gap-2.5">
                 {data.industrialAreas.map((area) => (
                   <div key={area} className="flex items-center gap-2">
-                    <MapPin size={12} className="text-[#5E5E5E]" />
-                    <span className="text-xs text-[#5E5E5E]">{area}</span>
+                    <MapPin size={12} className="text-copper" />
+                    <span className="text-sm text-muted">{area}</span>
                   </div>
                 ))}
               </div>
@@ -110,7 +103,7 @@ export default async function CityPage({ params }: Props) {
 
             <ScrollReveal delay={0.15}>
               <div className="lg:sticky lg:top-24">
-                <h3 className="font-700 text-[#1A1A1A] mb-4">
+                <h3 className="font-display text-xl uppercase tracking-wide text-ink font-700 mb-4">
                   Request Inspection in {data.name}
                 </h3>
                 <InquiryForm variant="light" />
@@ -120,33 +113,32 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
-      {/* What we buy */}
-      <section className="section-padding bg-[#F8F8F8]">
+      <section className="section-padding bg-surface">
         <div className="container-custom">
           <ScrollReveal>
-            <h2 className="heading-md text-[#1A1A1A] mb-8 text-center">
+            <h2 className="heading-md text-ink mb-8">
               What We Purchase in {data.name}
             </h2>
           </ScrollReveal>
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-5">
             {featuredScrap.map((cat) => (
               <StaggerItem key={cat.id}>
                 <Link
                   href={`/scrap-categories#${cat.id}`}
-                  className="group p-4 bg-white border border-[#E8E8E8] hover:bg-[#1A1A1A] hover:border-[#1A1A1A] rounded-2xl transition-all text-center"
+                  className="group block border-t border-line pt-3 hover:border-copper transition-colors"
                 >
-                  <span className="text-xs font-600 text-[#1A1A1A] group-hover:text-white transition-colors">
+                  <span className="text-sm font-600 text-ink group-hover:text-copper transition-colors">
                     {cat.name}
                   </span>
                 </Link>
               </StaggerItem>
             ))}
           </StaggerContainer>
-          <ScrollReveal delay={0.3}>
-            <div className="mt-5 text-center">
+          <ScrollReveal delay={0.25}>
+            <div className="mt-8">
               <Link
                 href="/scrap-categories"
-                className="inline-flex items-center gap-1.5 text-sm font-600 text-[#222222] border border-[#E8E8E8] px-5 py-2.5 rounded-xl hover:border-[#5E5E5E] transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink border-b border-copper pb-1 hover:text-copper transition-colors"
               >
                 View All Categories <ArrowRight size={13} />
               </Link>
@@ -155,20 +147,16 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Major clients */}
-      <section className="section-padding bg-[#111111] text-white">
+      <section className="section-padding bg-paper border-y border-line">
         <div className="container-custom">
           <ScrollReveal>
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-white font-black text-2xl mb-4" style={{ letterSpacing: "-0.02em" }}>
+            <div className="max-w-2xl">
+              <h2 className="heading-md text-ink mb-4">
                 Who We Serve in {data.name}
               </h2>
-              <div className="flex flex-wrap justify-center gap-3 mt-6">
+              <div className="flex flex-wrap gap-x-5 gap-y-2 mt-4">
                 {data.majorClients.map((client) => (
-                  <span
-                    key={client}
-                    className="px-4 py-2 border border-white/12 bg-white/4 rounded-full text-xs text-[#CCCCCC]"
-                  >
+                  <span key={client} className="text-sm text-muted">
                     {client}
                   </span>
                 ))}

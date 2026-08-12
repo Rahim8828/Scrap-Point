@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/ScrollReveal";
+import { StaggerContainer, StaggerItem } from "@/components/ui/ScrollReveal";
 import { INDUSTRIES } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -20,25 +20,25 @@ export default function IndustriesPage() {
         breadcrumbs={[{ label: "Industries" }]}
       />
 
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-paper">
         <div className="container-custom">
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
             {INDUSTRIES.map((industry) => (
               <StaggerItem key={industry.id}>
-                <div className="group bg-[#F8F8F8] border border-[#E8E8E8] rounded-2xl overflow-hidden card-hover h-full">
+                <article className="group">
                   <div
-                    className="h-48 bg-cover bg-center relative"
+                    className="aspect-[16/10] bg-cover bg-center relative overflow-hidden"
                     style={{ backgroundImage: `url('${industry.image}')` }}
                   >
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
-                    <div className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-                      <h2 className="text-white font-700 text-sm">{industry.name}</h2>
-                    </div>
+                    <div className="absolute inset-0 bg-ink/20 group-hover:bg-ink/35 transition-colors" />
                   </div>
-                  <div className="p-5">
-                    <p className="text-[#5E5E5E] text-sm leading-relaxed">{industry.description}</p>
-                  </div>
-                </div>
+                  <h2 className="mt-4 font-display text-xl uppercase tracking-wide text-ink font-700 group-hover:text-copper transition-colors">
+                    {industry.name}
+                  </h2>
+                  <p className="mt-2 text-muted text-sm leading-relaxed">
+                    {industry.description}
+                  </p>
+                </article>
               </StaggerItem>
             ))}
           </StaggerContainer>

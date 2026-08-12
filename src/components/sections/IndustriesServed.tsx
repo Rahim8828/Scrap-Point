@@ -5,65 +5,44 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/Scr
 
 export function IndustriesServed() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-paper">
       <div className="container-custom">
-
-        {/* Header */}
         <ScrollReveal>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8 mb-14">
-            <div>
-              <span className="inline-block text-[11px] font-semibold tracking-[0.18em] uppercase text-[#AAAAAA] mb-4">
-                Target Industries
-              </span>
-              <h2
-                className="font-black text-[#1A1A1A] leading-tight"
-                style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", letterSpacing: "-0.025em" }}
-              >
-                Industries We
-                <br />
-                Serve
-              </h2>
-            </div>
-            <p className="text-sm text-[#5E5E5E] max-w-xs leading-relaxed">
-              Professional scrap procurement across all major industrial
-              sectors operating across Gujarat.
+          <div className="max-w-2xl mb-14">
+            <span className="label-text block mb-4">Target Industries</span>
+            <h2 className="heading-lg text-ink">Industries We Serve</h2>
+            <p className="mt-4 body-lg max-w-md">
+              Professional scrap procurement across Gujarat&apos;s major industrial sectors.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Grid */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
           {INDUSTRIES.map((industry) => (
             <StaggerItem key={industry.id}>
-              <div className="group bg-white border border-[#E8E8E8] rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 h-full cursor-default">
-                {/* Image block */}
+              <article className="group">
                 <div
-                  className="h-48 bg-cover bg-center relative overflow-hidden"
+                  className="aspect-[16/10] bg-cover bg-center relative overflow-hidden"
                   style={{ backgroundImage: `url('${industry.image}')` }}
                 >
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300" />
-                  {/* Name on image */}
-                  <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
-                    <h3 className="text-white font-bold text-base leading-snug">{industry.name}</h3>
-                  </div>
+                  <div className="absolute inset-0 bg-ink/25 group-hover:bg-ink/40 transition-colors duration-400" />
                 </div>
-                {/* Description */}
-                <div className="p-6">
-                  <p className="text-[#5E5E5E] text-sm leading-relaxed">
-                    {industry.description}
-                  </p>
-                </div>
-              </div>
+                <h3 className="mt-4 font-display text-ink uppercase tracking-wide text-xl font-700 group-hover:text-copper transition-colors">
+                  {industry.name}
+                </h3>
+                <p className="mt-2 text-muted text-sm leading-relaxed">
+                  {industry.description}
+                </p>
+              </article>
             </StaggerItem>
           ))}
         </StaggerContainer>
 
-        {/* CTA */}
-        <ScrollReveal delay={0.3}>
-          <div className="mt-10 text-center">
+        <ScrollReveal delay={0.25}>
+          <div className="mt-12">
             <Link
               href="/industries"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#1A1A1A] border border-[#E8E8E8] hover:border-[#5E5E5E] px-7 py-3.5 rounded-xl bg-white transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-ink border-b border-copper pb-1 hover:text-copper transition-colors"
             >
               View All Industries <ArrowRight size={14} />
             </Link>
